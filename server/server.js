@@ -10,8 +10,9 @@ const PORT = process.env.PORT || 5000;
 app.use(helmet());
 const allowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:4173"
-];
+  "http://localhost:4173",
+  process.env.CLIENT_URL
+].filter(Boolean);
 
 app.use(
   cors({
